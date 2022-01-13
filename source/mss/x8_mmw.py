@@ -181,6 +181,16 @@ def _grab_(tag):
     except:
         pass    
 
+# =========================================CUSTOM===========================================================
+def write_to_text(datadict, filename):
+    try:
+        with open(filename + '.txt', 'at') as filehandle:
+            filehandle.write(str(datadict))
+        filehandle.close()
+    except:
+        print(f"Write operation unsuccessful...")
+
+# =====================================END CUSTOM===========================================================
 # ------------------------------------------------
 
 def _data_(prt):  # observe auxiliary port and process incoming data
@@ -224,6 +234,7 @@ def _data_(prt):  # observe auxiliary port and process incoming data
                         if dataFramePrev.setdefault('header', {}).setdefault('objects', 0) > 0:
                             log.message(dataFramePrev)
                     dataFramePrev = output
+                    write_to_text(dataFramePrev, "dataFramePrev")
 
         except serial.serialutil.SerialException:
             return  # leave thread
