@@ -19,6 +19,8 @@ from lib.helper import *
 from lib.utility import *
 from lib.logger import *
 
+import json
+dataframe = {}
 # ------------------------------------------------
 
 _meta_ = {
@@ -190,6 +192,12 @@ def write_to_text(datadict, filename):
     except:
         print(f"Write operation unsuccessful...")
 
+def write_to_json(datadict, filename):
+    try:
+        with open(filename + '.json', 'w') as outfile:
+            json.dump(datadict, outfile)
+    except:
+        print(f"Dump operation to json unsuccessful.")
 # =====================================END CUSTOM===========================================================
 # ------------------------------------------------
 
@@ -234,8 +242,12 @@ def _data_(prt):  # observe auxiliary port and process incoming data
                         if dataFramePrev.setdefault('header', {}).setdefault('objects', 0) > 0:
                             log.message(dataFramePrev)
                     dataFramePrev = output
-                    write_to_text(dataFramePrev.keys(), "dataFramePrev_keys")
-
+                    dataframe = dataFramePrev
+                    if dataframe is not None:
+                        # write_to_text(dataFramePrev.keys(), "dataFramePrev_keys")
+                        write_to_json(dataframe, "dataframe")
+                    else:
+                        print(f"Empty dataframe not printed.")
         except serial.serialutil.SerialException:
             return  # leave thread
 
