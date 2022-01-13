@@ -226,6 +226,7 @@ def _data_(prt):  # observe auxiliary port and process incoming data
                         if dataFramePrev.setdefault('header', {}).setdefault('objects', 0) > 0:
                             log.message(dataFramePrev)
                     dataFramePrev = output
+                    print(f"="*50 + "UPTO HERE" + "="*50)
                     try: 
                         if dataFramePrev is not None:
                             dataobj = Writer(dataFramePrev, "dataFramePrev")
