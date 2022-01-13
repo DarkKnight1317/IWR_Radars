@@ -234,7 +234,7 @@ def _data_(prt):  # observe auxiliary port and process incoming data
                         if dataFramePrev.setdefault('header', {}).setdefault('objects', 0) > 0:
                             log.message(dataFramePrev)
                     dataFramePrev = output
-                    write_to_text(dataFramePrev, "dataFramePrev")
+                    write_to_text(dataFramePrev.keys(), "dataFramePrev_keys")
 
         except serial.serialutil.SerialException:
             return  # leave thread
