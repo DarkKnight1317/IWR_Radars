@@ -19,6 +19,8 @@ from lib.helper import *
 from lib.utility import *
 from lib.logger import *
 
+from loadstore.write import *
+
 # ------------------------------------------------
 
 _meta_ = {
@@ -224,6 +226,14 @@ def _data_(prt):  # observe auxiliary port and process incoming data
                         if dataFramePrev.setdefault('header', {}).setdefault('objects', 0) > 0:
                             log.message(dataFramePrev)
                     dataFramePrev = output
+                    try: 
+                        if dataFramePrev is not None:
+                            dataobj = Writer(dataFramePrev, "dataFramePrev")
+                            dataobj.write_to_text()
+                        else:
+                            print(f"The dataFramePrev is empty: {dataFramePrev}")
+                    except Exception as e:
+                        print(f"Exception occured: {e}")
 
         except serial.serialutil.SerialException:
             return  # leave thread
