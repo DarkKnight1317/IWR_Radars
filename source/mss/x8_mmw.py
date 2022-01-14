@@ -198,6 +198,7 @@ def write_to_json(datadict, filename):
             json.dump(datadict, outfile)
     except:
         print(f"Dump operation to json unsuccessful.")
+
 # =====================================END CUSTOM===========================================================
 # ------------------------------------------------
 
