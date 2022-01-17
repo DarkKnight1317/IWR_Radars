@@ -1,0 +1,27 @@
+Start frequency (GHz):    	60
+Slope (MHz/us):           	70
+Sampling rate (MS/s):     	5.21
+Sweep bandwidth (GHz):    	3.44
+Frame periodicity (ms):   	250
+
+Loops per frame:          	16
+Chirps per loop:          	3
+Samples per chirp:        	256
+Chirps per frame:         	48
+Samples per frame:        	12288
+Receive antennas:         	4
+
+Azimuth antennas:         	2
+Elevation antennas:       	1
+Virtual antennas:         	12
+Azimuth resolution (°):   	14.5
+
+Range resolution (m):     	0.0436
+Range bin (m):            	0.0436
+Range depth (m):          	11.1621
+Unambiguous range (m):    	8.9297
+Range bins:               	256
+
+Doppler resolution (m/s): 	0.1252
+Maximum Doppler (m/s):    	1.0013
+Doppler bins:             	16
